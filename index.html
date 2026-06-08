@@ -774,7 +774,379 @@ Can't wait to seee you soooon my loveee 😘
 
 <script>
 
+let currentScreen = 1;
 
+/* ---------------- */
+/* SCREEN SWITCHING */
+/* ---------------- */
+
+function goToScreen(number){
+
+document
+.querySelectorAll(".screen")
+.forEach(screen=>{
+
+screen.classList.remove("active");
+
+});
+
+document
+.getElementById(
+`screen${number}`
+)
+.classList.add("active");
+
+currentScreen = number;
+
+}
+
+/* ---------------- */
+/* LOADING */
+/* ---------------- */
+
+const loadingMessages = [
+
+"Loading Memories...",
+
+"Loading Gym Addiction...",
+
+"Loading Handsomeness...",
+
+"Loading Girlfriend Love..."
+
+];
+
+const loadingText =
+document.getElementById(
+"loadingText"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const startBtn =
+document.getElementById(
+"startBtn"
+);
+
+let loadIndex = 0;
+
+function runLoading(){
+
+if(loadIndex < loadingMessages.length){
+
+loadingText.innerHTML =
+loadingMessages[loadIndex];
+
+progressFill.style.width =
+((loadIndex+1)*25)+"%";
+
+loadIndex++;
+
+setTimeout(
+runLoading,
+1000
+);
+
+}
+
+else{
+
+loadingText.innerHTML =
+"LEVEL 22 READY ✨";
+
+startBtn.style.display =
+"inline-block";
+
+}
+
+}
+
+startBtn.style.display =
+"none";
+
+runLoading();
+
+/* ---------------- */
+/* START BUTTON */
+/* ---------------- */
+
+startBtn.addEventListener(
+"click",
+()=>{
+
+goToScreen(2);
+
+}
+);
+
+/* ---------------- */
+/* ENVELOPE */
+/* ---------------- */
+
+const envelope =
+document.getElementById(
+"envelope"
+);
+
+const openLetterBtn =
+document.getElementById(
+"openLetterBtn"
+);
+
+openLetterBtn.style.display =
+"none";
+
+envelope.addEventListener(
+"click",
+()=>{
+
+envelope.style.transform =
+"translateY(-15px)";
+
+openLetterBtn.style.display =
+"inline-block";
+
+}
+);
+
+openLetterBtn.addEventListener(
+"click",
+()=>{
+
+goToScreen(3);
+
+startTyping();
+
+}
+);
+
+/* ---------------- */
+/* LETTER */
+/* ---------------- */
+
+const message = `
+
+Happpyyyyyyyyy Birthday myyyy babyyyy boyyy.. ❤️
+
+I loveee loveee loveee youuu sooo muchhhhhh.
+
+I can't wait for the day when I will be beside you at all times and don't have to wish you virtually.
+
+You have been an amazing boyfriend, son, friend and brother again this year.
+
+Can't wait to seee you soooon my loveee 😘
+
+`;
+
+const typewriter =
+document.getElementById(
+"typewriter"
+);
+
+const letterContinue =
+document.getElementById(
+"letterContinue"
+);
+
+letterContinue.style.display =
+"none";
+
+let typingStarted = false;
+
+function startTyping(){
+
+if(typingStarted) return;
+
+typingStarted = true;
+
+let i = 0;
+
+function type(){
+
+if(i < message.length){
+
+typewriter.innerHTML +=
+message.charAt(i);
+
+i++;
+
+setTimeout(type,35);
+
+}
+
+else{
+
+letterContinue.style.display =
+"inline-block";
+
+}
+
+}
+
+type();
+
+}
+
+letterContinue.addEventListener(
+"click",
+()=>{
+
+goToScreen(4);
+
+}
+);
+
+/* ---------------- */
+/* ACHIEVEMENT */
+/* ---------------- */
+
+document
+.getElementById(
+"achievementContinue"
+)
+.addEventListener(
+"click",
+()=>{
+
+goToScreen(5);
+
+}
+);
+
+/* ---------------- */
+/* CAKE */
+/* ---------------- */
+
+const blowBtn =
+document.getElementById(
+"blowBtn"
+);
+
+const wishContinue =
+document.getElementById(
+"wishContinue"
+);
+
+const wishStatus =
+document.getElementById(
+"wishStatus"
+);
+
+wishContinue.style.display =
+"none";
+
+blowBtn.addEventListener(
+"click",
+()=>{
+
+wishStatus.innerHTML =
+"✨ Wish Accepted ✨";
+
+blowBtn.innerHTML =
+"💨 Candle Blown";
+
+wishContinue.style.display =
+"inline-block";
+
+}
+);
+
+wishContinue.addEventListener(
+"click",
+()=>{
+
+goToScreen(6);
+
+}
+);
+
+/* ---------------- */
+/* DATE SCREEN */
+/* ---------------- */
+
+const yesBtn =
+document.getElementById(
+"yesBtn"
+);
+
+const noBtn =
+document.getElementById(
+"noBtn"
+);
+
+yesBtn.addEventListener(
+"click",
+()=>{
+
+goToScreen(7);
+
+}
+);
+
+noBtn.addEventListener(
+"mouseover",
+()=>{
+
+const x =
+Math.random()*200 - 100;
+
+const y =
+Math.random()*120 - 60;
+
+noBtn.style.transform =
+`translate(${x}px,${y}px)`;
+
+}
+);
+
+/* ---------------- */
+/* FLOATING HEARTS */
+/* ---------------- */
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.className =
+"float-heart";
+
+heart.innerHTML =
+["❤️","✨","💌","⭐"][
+
+Math.floor(
+Math.random()*4
+)
+
+];
+
+heart.style.left =
+Math.random()*100+"vw";
+
+heart.style.animationDuration =
+(6 + Math.random()*6)+"s";
+
+document
+.getElementById(
+"floating-hearts"
+)
+.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},12000);
+
+}
+
+setInterval(
+createHeart,
+800
+);
 
 </script>
 

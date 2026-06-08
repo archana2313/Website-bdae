@@ -8,7 +8,373 @@
 <style>
 
 /* PART 2 CSS GOES HERE */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
+body{
+font-family:Georgia,serif;
+background:linear-gradient(
+180deg,
+#F6EBDD,
+#F3D7D7
+);
+overflow:hidden;
+color:#6A4040;
+}
+
+/* ---------- SCREENS ---------- */
+
+.screen{
+display:none;
+height:100vh;
+width:100vw;
+justify-content:center;
+align-items:center;
+padding:20px;
+position:absolute;
+top:0;
+left:0;
+}
+
+.screen.active{
+display:flex;
+animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ---------- BUTTONS ---------- */
+
+button{
+border:none;
+padding:14px 28px;
+border-radius:999px;
+background:#8B4C4C;
+color:white;
+font-size:1rem;
+cursor:pointer;
+transition:.3s;
+margin-top:20px;
+}
+
+button:hover{
+transform:translateY(-3px);
+background:#734040;
+}
+
+/* ---------- LOADING ---------- */
+
+.loading-container{
+text-align:center;
+width:min(700px,90vw);
+}
+
+.loading-title{
+font-size:3rem;
+margin-bottom:30px;
+color:#7A3E3E;
+}
+
+.loading-card{
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(10px);
+padding:35px;
+border-radius:30px;
+box-shadow:
+0 15px 40px rgba(0,0,0,.08);
+}
+
+#loadingText{
+font-size:1.2rem;
+margin-bottom:20px;
+}
+
+.progress-bar{
+height:14px;
+background:#E7D0D0;
+border-radius:999px;
+overflow:hidden;
+}
+
+#progressFill{
+height:100%;
+width:0%;
+background:
+linear-gradient(
+90deg,
+#C98383,
+#8B4C4C
+);
+transition:.5s;
+}
+
+/* ---------- ENVELOPE ---------- */
+
+.envelope-page{
+text-align:center;
+}
+
+.envelope-page h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.envelope-page p{
+margin-bottom:25px;
+font-size:1.1rem;
+}
+
+#envelope{
+width:280px;
+height:190px;
+margin:auto;
+position:relative;
+cursor:pointer;
+transition:.4s;
+}
+
+#envelope:hover{
+transform:translateY(-10px);
+}
+
+.envelope-body{
+width:100%;
+height:100%;
+background:#9C5B5B;
+border-radius:10px;
+position:absolute;
+bottom:0;
+left:0;
+}
+
+.envelope-flap{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100px;
+background:#B67070;
+clip-path:
+polygon(
+0 0,
+100% 0,
+50% 100%
+);
+z-index:2;
+}
+
+#openLetterBtn{
+display:none;
+}
+
+/* ---------- LETTER ---------- */
+
+.letter-paper{
+background:#FFFDF9;
+width:min(900px,90vw);
+padding:50px;
+border-radius:24px;
+box-shadow:
+0 20px 50px rgba(0,0,0,.12);
+position:relative;
+}
+
+.letter-paper::before{
+content:"";
+position:absolute;
+inset:12px;
+border:2px solid #E3D1C4;
+border-radius:18px;
+}
+
+.letter-paper h1{
+text-align:center;
+margin-bottom:25px;
+color:#7A4A4A;
+}
+
+#typewriter{
+min-height:300px;
+line-height:2;
+font-size:1.1rem;
+}
+
+#letterContinue{
+display:none;
+}
+
+/* ---------- ACHIEVEMENT ---------- */
+
+.achievement-card{
+background:#FFF8F1;
+padding:45px;
+border-radius:30px;
+width:min(700px,90vw);
+text-align:center;
+box-shadow:
+0 20px 50px rgba(0,0,0,.12);
+border:3px solid #E7C98E;
+}
+
+.achievement-header{
+font-size:1.3rem;
+margin-bottom:20px;
+color:#8B4C4C;
+}
+
+.achievement-card ul{
+margin-top:20px;
+text-align:left;
+padding-left:20px;
+}
+
+.achievement-card li{
+margin-bottom:12px;
+}
+
+/* ---------- CAKE ---------- */
+
+.cake-page{
+text-align:center;
+}
+
+.cake{
+font-size:8rem;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-12px);
+}
+}
+
+.cake-page h1{
+font-size:2.3rem;
+margin:20px 0;
+}
+
+#wishContinue{
+display:none;
+}
+
+/* ---------- DATE ---------- */
+
+.date-card{
+background:
+rgba(255,255,255,.75);
+backdrop-filter:blur(12px);
+padding:50px;
+border-radius:30px;
+text-align:center;
+box-shadow:
+0 15px 40px rgba(0,0,0,.08);
+}
+
+.date-card h1{
+font-size:3rem;
+margin-bottom:25px;
+}
+
+.date-buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+}
+
+/* ---------- FINAL ---------- */
+
+.final-screen{
+max-width:900px;
+text-align:center;
+}
+
+.final-screen h1{
+font-size:4rem;
+margin-bottom:25px;
+color:#8B4C4C;
+}
+
+.final-screen p{
+font-size:1.4rem;
+line-height:2;
+}
+
+/* ---------- FLOATING ---------- */
+
+#floating-hearts{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+}
+
+.float-heart{
+position:absolute;
+font-size:24px;
+animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+from{
+transform:translateY(100vh);
+opacity:1;
+}
+to{
+transform:translateY(-20vh);
+opacity:0;
+}
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+
+.loading-title{
+font-size:2rem;
+}
+
+.envelope-page h1{
+font-size:2rem;
+}
+
+.cake{
+font-size:6rem;
+}
+
+.date-card h1{
+font-size:2rem;
+}
+
+.final-screen h1{
+font-size:2.5rem;
+}
+
+.final-screen p{
+font-size:1.1rem;
+}
+
+.letter-paper{
+padding:25px;
+}
+
+}
+  
 </style>
 
 </head>

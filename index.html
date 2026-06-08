@@ -197,6 +197,7 @@ position:absolute;
 inset:12px;
 border:2px solid #E3D1C4;
 border-radius:18px;
+  pointer-events:none;
 }
 
 .letter-paper h1{
@@ -210,7 +211,16 @@ min-height:300px;
 line-height:2;
 font-size:1.1rem;
 }
-
+  #letterContinue{
+display:none;
+position:relative;
+z-index:999;
+  }
+  
+.letter-paper{
+position:relative;
+z-index:1;
+}
 #letterContinue{
 display:none;
 }

@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Birthday Adventure ❤️</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+<title>
+Birthday Adventure ❤️
+</title>
 
 <style>
 
@@ -17,286 +21,385 @@ box-sizing:border-box;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-overflow:hidden;
-background:linear-gradient(
-135deg,
-#EAF4FF,
-#DCEBFF,
-#F6E7FF
+
+font-family:
+'Georgia',
+serif;
+
+background:
+linear-gradient(
+180deg,
+#F6EBDD,
+#F3D7D7
 );
-color:#2b3d52;
+
+overflow:hidden;
+
+color:#6A4040;
+
 }
 
-/* ========================= */
+/* ---------------- */
 /* SCREENS */
-/* ========================= */
+/* ---------------- */
 
 .screen{
+
 display:none;
+
 height:100vh;
+
 width:100vw;
-padding:20px;
+
 justify-content:center;
+
 align-items:center;
+
+padding:25px;
+
 position:absolute;
+
 top:0;
 left:0;
+
 }
 
 .screen.active{
+
 display:flex;
-animation:fadeIn .6s ease;
+
+animation:
+fadeIn 1s ease;
+
 }
 
 @keyframes fadeIn{
+
 from{
 opacity:0;
-transform:translateY(20px);
+transform:translateY(30px);
 }
+
 to{
 opacity:1;
 transform:translateY(0);
 }
+
 }
 
-/* ========================= */
-/* CARD */
-/* ========================= */
+/* ---------------- */
+/* BUTTONS */
+/* ---------------- */
 
-.card{
-width:min(90vw,800px);
+button{
 
-background:rgba(255,255,255,0.85);
+border:none;
 
-backdrop-filter:blur(12px);
+padding:15px 28px;
+
+border-radius:999px;
+
+background:#8C5454;
+
+color:white;
+
+font-size:1rem;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:
+translateY(-3px);
+
+background:#744444;
+
+}
+
+/* ---------------- */
+/* LOADING SCREEN */
+/* ---------------- */
+
+.loading-container{
+
+text-align:center;
+
+max-width:700px;
+
+width:100%;
+
+}
+
+.loading-title{
+
+font-size:3rem;
+
+margin-bottom:30px;
+
+color:#7B4545;
+
+}
+
+.loading-card{
+
+background:
+rgba(255,255,255,.65);
+
+backdrop-filter:
+blur(10px);
 
 padding:35px;
 
 border-radius:28px;
 
 box-shadow:
-0 15px 40px rgba(0,0,0,0.08);
+0 15px 40px rgba(0,0,0,.08);
 
-text-align:center;
-}
-
-/* ========================= */
-/* TITLES */
-/* ========================= */
-
-.title{
-font-family:'Pacifico',cursive;
-font-size:2.2rem;
-margin-bottom:20px;
-color:#3f5fa9;
-}
-
-.subtitle{
-font-size:1.2rem;
-margin-bottom:20px;
-}
-
-.date-title{
-font-family:'Caveat',cursive;
-font-size:4rem;
-color:#ff4e8a;
-}
-
-/* ========================= */
-/* LOADING */
-/* ========================= */
-
-.loading-box{
-margin-top:25px;
-}
-
-#loading-text{
-font-size:1.1rem;
-margin-bottom:20px;
 }
 
 .progress-bar{
-height:14px;
-width:100%;
-background:#dbe8ff;
-border-radius:100px;
+
+height:15px;
+
+background:#EAD1D1;
+
+border-radius:999px;
+
 overflow:hidden;
+
+margin-top:25px;
+
 }
 
-#progress-fill{
+#progressFill{
+
 height:100%;
+
 width:0%;
-background:linear-gradient(
+
+background:
+linear-gradient(
 90deg,
-#6da6ff,
-#8b8cff
+#C57B7B,
+#8B4C4C
 );
-border-radius:100px;
+
 transition:.5s;
+
 }
 
-/* ========================= */
-/* BUTTONS */
-/* ========================= */
-
-button{
-border:none;
-
-padding:14px 28px;
-
-border-radius:100px;
-
-cursor:pointer;
-
-font-size:1rem;
-
-background:#5f82ff;
-
-color:white;
-
-margin-top:20px;
-
-transition:.25s;
-}
-
-button:hover{
-transform:translateY(-3px);
-}
-
-.hidden-btn{
-display:none;
-}
-
-/* ========================= */
+/* ---------------- */
 /* ENVELOPE */
-/* ========================= */
+/* ---------------- */
 
-.envelope-container{
+.envelope-page{
+
 text-align:center;
+
 }
 
-.envelope{
-width:220px;
-height:150px;
+.envelope-page h1{
 
-background:#ffffff;
+font-size:2.8rem;
 
-border-radius:12px;
+margin-bottom:10px;
 
-box-shadow:
-0 10px 30px rgba(0,0,0,0.08);
+}
 
-display:flex;
-justify-content:center;
-align-items:center;
+.envelope-page p{
 
-font-size:4rem;
+margin-bottom:30px;
+
+font-size:1.1rem;
+
+}
+
+#envelope{
+
+width:280px;
+
+height:190px;
+
+position:relative;
+
+margin:auto;
 
 cursor:pointer;
 
 transition:.4s;
+
 }
 
-.envelope:hover{
-transform:scale(1.05);
+#envelope:hover{
+
+transform:
+translateY(-10px);
+
 }
 
-.hidden-content{
-display:none;
-margin-top:30px;
-text-align:center;
+.envelope-body{
+
+width:100%;
+
+height:100%;
+
+background:#9A5959;
+
+border-radius:8px;
+
+position:absolute;
+
+bottom:0;
+
 }
 
-/* ========================= */
-/* LETTER */
-/* ========================= */
+.envelope-flap{
 
-.letter-card{
-background:
-repeating-linear-gradient(
-white,
-white 32px,
-#dcecff 33px
+position:absolute;
+
+top:0;
+
+width:100%;
+
+height:100px;
+
+background:#B56D6D;
+
+clip-path:
+polygon(
+0 0,
+100% 0,
+50% 100%
 );
 
-text-align:left;
+z-index:2;
+
+}
+
+/* ---------------- */
+/* LETTER */
+/* ---------------- */
+
+.letter-paper{
+
+background:#FFFDF9;
+
+width:min(900px,90vw);
+
+padding:50px;
+
+border-radius:24px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.1);
+
+position:relative;
+
+}
+
+.letter-paper::before{
+
+content:"";
+
+position:absolute;
+
+inset:12px;
+
+border:
+2px solid
+#E4D0C4;
+
+border-radius:18px;
+
+}
+
+.letter-paper h1{
+
+text-align:center;
+
+margin-bottom:30px;
+
+color:#7A4A4A;
+
 }
 
 #typewriter{
+
 line-height:2;
-font-size:1.1rem;
-min-height:280px;
-padding-top:20px;
+
+font-size:1.15rem;
+
+min-height:300px;
+
 }
 
-.continue-btn{
-display:none;
-}
-
-/* ========================= */
+/* ---------------- */
 /* ACHIEVEMENT */
-/* ========================= */
+/* ---------------- */
 
 .achievement-card{
-background:white;
 
-padding:35px;
+background:#FFF9F3;
 
-border-radius:28px;
+padding:45px;
 
-width:min(90vw,700px);
+border-radius:30px;
+
+width:min(700px,90vw);
 
 box-shadow:
-0 20px 40px rgba(0,0,0,.08);
+0 20px 50px rgba(0,0,0,.12);
 
 text-align:center;
 
-animation:achievementDrop .8s ease;
-}
-
-@keyframes achievementDrop{
-
-from{
-transform:
-translateY(-120px);
-opacity:0;
-}
-
-to{
-transform:
-translateY(0);
-opacity:1;
-}
+border:
+3px solid
+#E4C892;
 
 }
 
-.stars{
-font-size:1.5rem;
-margin:15px 0;
+.achievement-header{
+
+font-size:1.3rem;
+
+margin-bottom:20px;
+
+color:#8C5454;
+
 }
 
-.achievement-description{
-margin-top:20px;
-text-align:left;
+.achievement-card h1{
+
+margin-bottom:15px;
+
 }
 
-.achievement-description ul{
-padding-left:20px;
-margin-top:10px;
-}
+/* ---------------- */
+/* CAKE SCREEN */
+/* ---------------- */
 
-/* ========================= */
-/* CAKE */
-/* ========================= */
+.cake-page{
+
+text-align:center;
+
+}
 
 .cake{
-font-size:6rem;
 
-animation:bounce 2s infinite;
+font-size:8rem;
+
+margin-bottom:20px;
+
+animation:
+cakeBounce 2s infinite;
+
 }
 
-@keyframes bounce{
+@keyframes cakeBounce{
 
 0%,100%{
 transform:translateY(0);
@@ -308,91 +411,150 @@ transform:translateY(-10px);
 
 }
 
-/* ========================= */
-/* FINAL SCREEN */
-/* ========================= */
+.cake-page h1{
 
-.final-screen{
-text-align:center;
+font-size:2.5rem;
+
+margin-bottom:20px;
+
 }
 
-.final-title{
+/* ---------------- */
+/* DATE SCREEN */
+/* ---------------- */
 
-font-family:'Pacifico',cursive;
+.date-card{
+
+background:
+rgba(255,255,255,.7);
+
+padding:50px;
+
+border-radius:30px;
+
+backdrop-filter:
+blur(10px);
+
+text-align:center;
+
+}
+
+.date-card h1{
+
+font-size:3rem;
+
+margin-bottom:30px;
+
+}
+
+.date-buttons{
+
+display:flex;
+
+gap:15px;
+
+justify-content:center;
+
+}
+
+/* ---------------- */
+/* FINAL SCREEN */
+/* ---------------- */
+
+.final-screen{
+
+text-align:center;
+
+max-width:900px;
+
+}
+
+.final-screen h1{
 
 font-size:4rem;
 
-color:#4b68c9;
+margin-bottom:25px;
+
+color:#8A4A4A;
+
 }
 
-.final-message{
+.final-screen p{
 
-margin-top:20px;
+font-size:1.4rem;
 
-font-family:'Caveat',cursive;
+line-height:2;
 
-font-size:2rem;
-
-color:#ff4e8a;
 }
 
-/* ========================= */
-/* FLOATING ELEMENTS */
-/* ========================= */
+/* ---------------- */
+/* FLOATING HEARTS */
+/* ---------------- */
 
-#floating-container{
+#floating-hearts{
+
 position:fixed;
+
 inset:0;
+
 pointer-events:none;
+
 overflow:hidden;
+
 }
 
-.float{
+.float-heart{
+
 position:absolute;
-animation:floatUp linear infinite;
-opacity:.7;
+
+font-size:24px;
+
+animation:
+floatUp linear forwards;
+
 }
 
 @keyframes floatUp{
 
 from{
-transform:translateY(110vh);
+
+transform:
+translateY(100vh);
+
+opacity:1;
+
 }
 
 to{
-transform:translateY(-20vh);
-}
+
+transform:
+translateY(-20vh);
+
+opacity:0;
 
 }
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media(max-width:600px){
-
-.title{
-font-size:1.8rem;
 }
 
-.date-title{
-font-size:3rem;
+@media(max-width:768px){
+
+.loading-title{
+font-size:2rem;
 }
 
-.final-title{
+.date-card h1{
+font-size:2rem;
+}
+
+.final-screen h1{
 font-size:2.5rem;
 }
 
-.final-message{
-font-size:1.5rem;
+.cake{
+font-size:6rem;
 }
 
-.card{
-padding:25px;
-}
-
-}
-/* PASTE PART 2 HERE */
+    }
 
 </style>
 
@@ -400,322 +562,318 @@ padding:25px;
 
 <body>
 
-<!-- FLOATING ELEMENTS -->
-<div id="floating-container"></div>
+<div id="floating-hearts"></div>
 
-<!-- ========================= -->
-<!-- SCREEN 1 -->
-<!-- ========================= -->
+<!-- SCREEN 1 : LOADING -->
 
-<section class="screen active" id="screen1">
+<section id="screen1" class="screen active">
 
-<div class="card">
+  <div class="loading-container">
 
-<h1 class="title">
-🎮 Birthday Event
-</h1>
+    <h1 class="loading-title">
+      Birthday Adventure ❤️
+    </h1>
 
-<h2 class="subtitle">
-Initializing...
-</h2>
+    <div class="loading-card">
 
-<div class="loading-box">
+      <div id="loadingText">
+        Loading Memories...
+      </div>
 
-<div id="loading-text">
-Loading Memories...
-</div>
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
 
-<div class="progress-bar">
-<div id="progress-fill"></div>
-</div>
+    </div>
 
-</div>
+    <button id="startBtn">
+      Start Adventure ✨
+    </button>
 
-<button id="startBtn" class="hidden-btn" onclick="nextScreen()">
-✨ Start Adventure
-</button>
-</div>
+  </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- SCREEN 2 -->
-<!-- ========================= -->
+<!-- SCREEN 2 : ENVELOPE -->
 
-<section class="screen" id="screen2">
+<section id="screen2" class="screen">
 
-<div class="envelope-container">
+  <div class="envelope-page">
 
-<div class="envelope" id="envelope">
+    <h1>
+      Special Delivery 💌
+    </h1>
 
-<div class="letter-preview">
-💌
-</div>
+    <p>
+      For The Birthday Boy ❤️
+    </p>
 
-</div>
+    <div id="envelope">
 
-</div>
+      <div class="envelope-flap"></div>
 
-<div class="hidden-content" id="envelopeContent">
+      <div class="envelope-body"></div>
 
-<h1 class="title">
-Happy Birthday Baby Boy ❤️
-</h1>
+    </div>
 
-<p>
-A letter has arrived...
-</p>
+    <div id="openLetterArea">
 
-<button onclick="nextScreen()">
-Open Letter
-</button>
+      <button id="openLetterBtn">
+        Open Letter ❤️
+      </button>
 
-</div>
+    </div>
+
+  </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- SCREEN 3 -->
-<!-- ========================= -->
+<!-- SCREEN 3 : LETTER -->
 
-<section class="screen" id="screen3">
+<section id="screen3" class="screen">
 
-<div class="card letter-card">
+  <div class="letter-paper">
 
-<h1 class="title">
-❤️ A Message From Your Girlfriend ❤️
-</h1>
+    <h1>
+      A Message For You ❤️
+    </h1>
 
-<div id="typewriter"></div>
+    <div id="typewriter"></div>
 
-<button class="continue-btn" onclick="nextScreen()">
-Continue ❤️
-</button>
+    <button id="letterContinue">
+      Continue ❤️
+    </button>
 
-</div>
+  </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- SCREEN 4 -->
-<!-- ========================= -->
+<!-- SCREEN 4 : ACHIEVEMENT -->
 
-<section class="screen" id="screen4">
+<section id="screen4" class="screen">
 
-<div class="achievement-card">
+  <div class="achievement-card">
 
-<h2>
-🏆 ACHIEVEMENT UNLOCKED
-</h2>
+    <div class="achievement-header">
 
-<h1>
-MY FAVORITE PERSON
-</h1>
+      🏆 ACHIEVEMENT UNLOCKED
 
-<div class="stars">
-⭐⭐⭐⭐⭐
-</div>
+    </div>
 
-<p>
-<b>Rarity:</b> Legendary
-</p>
+    <h1>
+      MY FAVORITE PERSON
+    </h1>
 
-<p>
-<b>Status:</b> Obtained ✓
-</p>
+    <p>
+      <b>Rarity:</b> Legendary ⭐⭐⭐⭐⭐
+    </p>
 
-<div class="achievement-description">
+    <p>
+      <b>Status:</b> Obtained ✓
+    </p>
 
-<p>
-A rare character known for:
-</p>
+    <br>
 
-<ul>
+    <p>
+      A rare character known for:
+    </p>
 
-<li>
-Making me laugh when I shouldn't
-</li>
+    <ul>
 
-<li>
-Being annoyingly lovable
-</li>
+      <li>Making me laugh when I shouldn't</li>
 
-<li>
-Looking cute without even trying
-</li>
+      <li>Being annoyingly lovable</li>
 
-<li>
-Somehow making ordinary days feel special
-</li>
+      <li>Looking cute without even trying</li>
 
-</ul>
+      <li>Making ordinary days feel special</li>
 
-</div>
+    </ul>
 
-<button onclick="nextScreen()">
-Continue
-</button>
+    <button id="achievementContinue">
+      Continue
+    </button>
 
-</div>
+  </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- SCREEN 5 -->
-<!-- ========================= -->
+<!-- SCREEN 5 : CAKE -->
 
-<section class="screen" id="screen5">
+<section id="screen5" class="screen">
 
-<div class="card">
+  <div class="cake-page">
 
-<div class="cake">
-🎂
-</div>
+    <div class="cake">
+      🎂
+    </div>
 
-<h1>
-Close Your Eyes And Make A Wish ✨
-</h1>
+    <h1>
+      Close Your Eyes And Make A Wish ✨
+    </h1>
 
-<p id="wishText">
-Make a wish...
-</p>
+    <p id="wishStatus">
+      Make a wish...
+    </p>
 
-<button id="blowBtn">
-🕯 Blow Candle
-</button>
+    <button id="blowBtn">
+      🕯 Blow Candle
+    </button>
 
-<button id="wishContinueBtn" class="hidden-btn">
-Continue
-</button>
+    <button id="wishContinue">
+      Continue ❤️
+    </button>
 
-</div>
+  </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- SCREEN 6 -->
-<!-- ========================= -->
+<!-- SCREEN 6 : DATE -->
 
-<section class="screen" id="screen6">
+<section id="screen6" class="screen">
 
-<div class="card">
+  <div class="date-card">
 
-<h1 class="title">
-Will You Be My
-</h1>
+    <h1>
+      Will You Be My Date?
+      ❤️
+    </h1>
 
-<h1 class="date-title">
-Date? ❤️
-</h1>
+    <p>
+      For Today's Special Day
+    </p>
 
-<p>
-For Today's Special Day
-</p>
+    <br>
 
-<div class="date-buttons">
+    <div class="date-buttons">
 
-<button id="yesBtn">
-☑ Yes
-</button>
+      <button id="yesBtn">
+        YES ❤️
+      </button>
 
-<button id="noBtn">
-☐ No
-</button>
+      <button id="noBtn">
+        NO
+      </button>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
 </section>
 
-<!-- ========================= -->
-<!-- SCREEN 7 -->
-<!-- ========================= -->
+<!-- SCREEN 7 : FINAL -->
 
-<section class="screen" id="screen7">
+<section id="screen7" class="screen">
 
-<div class="final-screen">
+  <div class="final-screen">
 
-<h1 class="final-title">
-HAPPY BIRTHDAY ❤️
-</h1>
+    <h1>
+      HAPPY BIRTHDAY ❤️
+    </h1>
 
-<p class="final-message">
-Can't wait to seee you soooon my loveee 😘
-</p>
+    <p>
 
-</div>
+      Happpyyyyyyyyy Birthday myyyy babyyyy boyyy..
+      <br><br>
+
+      I loveee loveee loveee youuu sooo muchhhhhh.
+      <br><br>
+
+      I can't wait for the day when I will be beside you at all times and don't have to wish you virtually.
+      <br><br>
+
+      You have been an amazing boyfriend, son, friend and brother again this year.
+      <br><br>
+
+      Can't wait to seee you soooon my loveee 😘
+
+    </p>
+
+  </div>
 
 </section>
 
 <script>
-/* ========================= */
-/* SCREEN NAVIGATION */
-/* ========================= */
 
 let currentScreen = 1;
 
-function nextScreen() {
+/* ---------------- */
+/* SCREEN SWITCHING */
+/* ---------------- */
+
+function goToScreen(number){
 
 document
-.getElementById(`screen${currentScreen}`)
-.classList.remove("active");
+.querySelectorAll(".screen")
+.forEach(screen=>{
 
-currentScreen++;
+screen.classList.remove("active");
+
+});
 
 document
-.getElementById(`screen${currentScreen}`)
+.getElementById(
+`screen${number}`
+)
 .classList.add("active");
+
+currentScreen = number;
 
 }
 
-/* ========================= */
-/* LOADING SCREEN */
-/* ========================= */
+/* ---------------- */
+/* LOADING */
+/* ---------------- */
 
 const loadingMessages = [
 
-"Loading Memories... ✓",
+"Loading Memories...",
 
-"Loading Gym Addiction... ✓",
+"Loading Gym Addiction...",
 
-"Loading Handsomeness... ✓",
+"Loading Handsomeness...",
 
-"Loading Girlfriend Love... ✓"
+"Loading Girlfriend Love..."
 
 ];
 
 const loadingText =
-document.getElementById("loading-text");
+document.getElementById(
+"loadingText"
+);
 
 const progressFill =
-document.getElementById("progress-fill");
+document.getElementById(
+"progressFill"
+);
 
 const startBtn =
-document.getElementById("startBtn");
-startBtn.addEventListener("click", () => {
-    nextScreen();
-});
+document.getElementById(
+"startBtn"
+);
 
-let loadingIndex = 0;
+let loadIndex = 0;
 
-function runLoading() {
+function runLoading(){
 
-if (loadingIndex < loadingMessages.length) {
+if(loadIndex < loadingMessages.length){
 
-loadingText.textContent =
-loadingMessages[loadingIndex];
+loadingText.innerHTML =
+loadingMessages[loadIndex];
 
 progressFill.style.width =
-`${(loadingIndex + 1) * 25}%`;
+((loadIndex+1)*25)+"%";
 
-loadingIndex++;
+loadIndex++;
 
-setTimeout(runLoading, 1200);
+setTimeout(
+runLoading,
+1000
+);
 
 }
 
-else {
+else{
 
 loadingText.innerHTML =
 "LEVEL 22 READY ✨";
@@ -727,43 +885,70 @@ startBtn.style.display =
 
 }
 
+startBtn.style.display =
+"none";
+
 runLoading();
 
-/* ========================= */
-/* ENVELOPE */
-/* ========================= */
+/* ---------------- */
+/* START BUTTON */
+/* ---------------- */
 
-const envelope =
-document.getElementById("envelope");
+startBtn.addEventListener(
+"click",
+()=>{
 
-const envelopeContent =
-document.getElementById("envelopeContent");
-
-if(envelope){
-
-envelope.addEventListener("click",()=>{
-
-envelope.style.transform =
-"translateY(-15px) scale(1.08)";
-
-envelope.innerHTML = "📨";
-
-setTimeout(()=>{
-
-envelopeContent.style.display =
-"block";
-
-},500);
-
-});
+goToScreen(2);
 
 }
+);
 
-/* ========================= */
-/* TYPEWRITER LETTER */
-/* ========================= */
+/* ---------------- */
+/* ENVELOPE */
+/* ---------------- */
 
-const birthdayMessage = `
+const envelope =
+document.getElementById(
+"envelope"
+);
+
+const openLetterBtn =
+document.getElementById(
+"openLetterBtn"
+);
+
+openLetterBtn.style.display =
+"none";
+
+envelope.addEventListener(
+"click",
+()=>{
+
+envelope.style.transform =
+"translateY(-15px)";
+
+openLetterBtn.style.display =
+"inline-block";
+
+}
+);
+
+openLetterBtn.addEventListener(
+"click",
+()=>{
+
+goToScreen(3);
+
+startTyping();
+
+}
+);
+
+/* ---------------- */
+/* LETTER */
+/* ---------------- */
+
+const message = `
 
 Happpyyyyyyyyy Birthday myyyy babyyyy boyyy.. ❤️
 
@@ -778,37 +963,44 @@ Can't wait to seee you soooon my loveee 😘
 `;
 
 const typewriter =
-document.getElementById("typewriter");
+document.getElementById(
+"typewriter"
+);
 
-const continueBtn =
-document.querySelector(".continue-btn");
+const letterContinue =
+document.getElementById(
+"letterContinue"
+);
 
-let letterStarted = false;
+letterContinue.style.display =
+"none";
 
-function startTypewriter(){
+let typingStarted = false;
 
-if(letterStarted) return;
+function startTyping(){
 
-letterStarted = true;
+if(typingStarted) return;
+
+typingStarted = true;
 
 let i = 0;
 
 function type(){
 
-if(i < birthdayMessage.length){
+if(i < message.length){
 
 typewriter.innerHTML +=
-birthdayMessage.charAt(i);
+message.charAt(i);
 
 i++;
 
-setTimeout(type,40);
+setTimeout(type,35);
 
 }
 
 else{
 
-continueBtn.style.display =
+letterContinue.style.display =
 "inline-block";
 
 }
@@ -819,287 +1011,166 @@ type();
 
 }
 
-/* ========================= */
-/* START LETTER WHEN SCREEN 3 */
-/* ========================= */
+letterContinue.addEventListener(
+"click",
+()=>{
 
-const originalNextScreen =
-nextScreen;
-
-nextScreen = function(){
-
-document
-.getElementById(`screen${currentScreen}`)
-.classList.remove("active");
-
-currentScreen++;
-
-document
-.getElementById(`screen${currentScreen}`)
-.classList.add("active");
-
-if(currentScreen === 3){
-
-startTypewriter();
+goToScreen(4);
 
 }
+);
+
+/* ---------------- */
+/* ACHIEVEMENT */
+/* ---------------- */
+
+document
+.getElementById(
+"achievementContinue"
+)
+.addEventListener(
+"click",
+()=>{
+
+goToScreen(5);
 
 }
+);
 
-/* ========================= */
-/* CAKE WISH */
-/* ========================= */
+/* ---------------- */
+/* CAKE */
+/* ---------------- */
 
 const blowBtn =
-document.getElementById("blowBtn");
+document.getElementById(
+"blowBtn"
+);
 
-const wishText =
-document.getElementById("wishText");
+const wishContinue =
+document.getElementById(
+"wishContinue"
+);
 
-const wishContinueBtn =
-document.getElementById("wishContinueBtn");
+const wishStatus =
+document.getElementById(
+"wishStatus"
+);
 
-if(blowBtn){
+wishContinue.style.display =
+"none";
 
-blowBtn.addEventListener("click",()=>{
+blowBtn.addEventListener(
+"click",
+()=>{
 
-wishText.innerHTML =
+wishStatus.innerHTML =
 "✨ Wish Accepted ✨";
 
 blowBtn.innerHTML =
 "💨 Candle Blown";
 
-createConfetti();
-
-wishContinueBtn.style.display =
+wishContinue.style.display =
 "inline-block";
 
-});
+}
+);
+
+wishContinue.addEventListener(
+"click",
+()=>{
+
+goToScreen(6);
 
 }
+);
 
-/* ========================= */
-/* CONFETTI */
-/* ========================= */
-
-function createConfetti(){
-
-for(let i=0;i<80;i++){
-
-const confetti =
-document.createElement("div");
-
-confetti.innerHTML =
-["✨","⭐","💙","❤️","🩵","🎉"][
-
-Math.floor(Math.random()*6)
-
-];
-
-confetti.style.position =
-"fixed";
-
-confetti.style.left =
-Math.random()*100+"vw";
-
-confetti.style.top =
-"-20px";
-
-confetti.style.fontSize =
-(18 + Math.random()*18)+"px";
-
-confetti.style.zIndex = "999";
-
-document.body.appendChild(confetti);
-
-const speed =
-3 + Math.random()*4;
-
-let pos = -20;
-
-const fall = setInterval(()=>{
-
-pos += speed;
-
-confetti.style.top =
-pos+"px";
-
-if(pos > window.innerHeight){
-
-clearInterval(fall);
-
-confetti.remove();
-
-}
-
-},20);
-
-}
-
-}
-
-/* ========================= */
-/* YES BUTTON */
-/* ========================= */
+/* ---------------- */
+/* DATE SCREEN */
+/* ---------------- */
 
 const yesBtn =
-document.getElementById("yesBtn");
-
-if(yesBtn){
-
-yesBtn.addEventListener("click",()=>{
-
-createConfetti();
-
-setTimeout(()=>{
-
-nextScreen();
-
-},1000);
-
-});
-
-}
-
-/* ========================= */
-/* NO BUTTON RUNS AWAY */
-/* ========================= */
+document.getElementById(
+"yesBtn"
+);
 
 const noBtn =
-document.getElementById("noBtn");
+document.getElementById(
+"noBtn"
+);
 
-if(noBtn){
+yesBtn.addEventListener(
+"click",
+()=>{
 
-function moveNoButton(){
+goToScreen(7);
+
+}
+);
+
+noBtn.addEventListener(
+"mouseover",
+()=>{
 
 const x =
 Math.random()*200 - 100;
 
 const y =
-Math.random()*100 - 50;
+Math.random()*120 - 60;
 
 noBtn.style.transform =
 `translate(${x}px,${y}px)`;
 
 }
-
-noBtn.addEventListener(
-"mouseover",
-moveNoButton
 );
 
-noBtn.addEventListener(
-"touchstart",
-moveNoButton
-);
-
-}
-
-/* ========================= */
+/* ---------------- */
 /* FLOATING HEARTS */
-/* ========================= */
+/* ---------------- */
 
-const floatingContainer =
-document.getElementById(
-"floating-container"
-);
+function createHeart(){
 
-const icons = [
-
-"💙",
-"❤️",
-"✨",
-"⭐",
-"🩵"
-
-];
-
-function createFloatingIcon(){
-
-const icon =
+const heart =
 document.createElement("div");
 
-icon.classList.add("float");
+heart.className =
+"float-heart";
 
-icon.innerHTML =
-icons[
+heart.innerHTML =
+["❤️","✨","💌","⭐"][
 
 Math.floor(
-Math.random()*icons.length
+Math.random()*4
 )
 
 ];
 
-icon.style.left =
+heart.style.left =
 Math.random()*100+"vw";
 
-icon.style.fontSize =
-(18 + Math.random()*20)+"px";
+heart.style.animationDuration =
+(6 + Math.random()*6)+"s";
 
-icon.style.animationDuration =
-(8 + Math.random()*10)+"s";
-
-floatingContainer.appendChild(icon);
+document
+.getElementById(
+"floating-hearts"
+)
+.appendChild(heart);
 
 setTimeout(()=>{
 
-icon.remove();
+heart.remove();
 
-},18000);
+},12000);
 
 }
 
 setInterval(
-createFloatingIcon,
-500
+createHeart,
+800
 );
-
-/* ========================= */
-/* END */
-/* ========================= */
-
-/* PASTE PART 3 HERE */
 
 </script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

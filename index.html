@@ -601,7 +601,457 @@ Can't wait to seee you soooon my loveee 😘
 </section>
 
 <script>
+let currentScreen = 1;
 
+/* ---------------- */
+/* SCREEN NAVIGATION */
+/* ---------------- */
+
+function goToScreen(screenNumber){
+
+document
+.querySelectorAll(".screen")
+.forEach(screen=>{
+
+screen.classList.remove("active");
+
+});
+
+document
+.getElementById(
+`screen${screenNumber}`
+)
+.classList.add("active");
+
+currentScreen = screenNumber;
+
+}
+
+/* ---------------- */
+/* LOADING SCREEN */
+/* ---------------- */
+
+const loadingMessages = [
+
+"Loading Memories...",
+
+"Loading Gym Addiction...",
+
+"Loading Handsomeness...",
+
+"Loading Girlfriend Love..."
+
+];
+
+const loadingText =
+document.getElementById(
+"loadingText"
+);
+
+const progressFill =
+document.getElementById(
+"progressFill"
+);
+
+const startBtn =
+document.getElementById(
+"startBtn"
+);
+
+startBtn.style.display =
+"none";
+
+let loadIndex = 0;
+
+function runLoading(){
+
+if(loadIndex < loadingMessages.length){
+
+loadingText.innerHTML =
+loadingMessages[loadIndex];
+
+progressFill.style.width =
+((loadIndex+1)*25)+"%";
+
+loadIndex++;
+
+setTimeout(
+runLoading,
+1000
+);
+
+}
+
+else{
+
+loadingText.innerHTML =
+"LEVEL 22 READY ✨";
+
+startBtn.style.display =
+"inline-block";
+
+}
+
+}
+
+runLoading();
+
+/* ---------------- */
+/* START BUTTON */
+/* ---------------- */
+
+startBtn.addEventListener(
+"click",
+()=>{
+
+goToScreen(2);
+
+}
+);
+
+/* ---------------- */
+/* ENVELOPE */
+/* ---------------- */
+
+const envelope =
+document.getElementById(
+"envelope"
+);
+
+const openLetterBtn =
+document.getElementById(
+"openLetterBtn"
+);
+
+envelope.addEventListener(
+"click",
+()=>{
+
+envelope.style.transform =
+"translateY(-12px)";
+
+openLetterBtn.style.display =
+"inline-block";
+
+}
+);
+
+openLetterBtn.addEventListener(
+"click",
+()=>{
+
+goToScreen(3);
+
+startTyping();
+
+}
+);
+
+/* ---------------- */
+/* LETTER */
+/* ---------------- */
+
+const birthdayMessage = `
+
+Happpyyyyyyyyy Birthday myyyy babyyyy boyyy.. ❤️
+
+I loveee loveee loveee youuu sooo muchhhhhh.
+
+I can't wait for the day when I will be beside you at all times and don't have to wish you virtually.
+
+You have been an amazing boyfriend, son, friend and brother again this year.
+
+Can't wait to seee you soooon my loveee 😘
+
+`;
+
+const typewriter =
+document.getElementById(
+"typewriter"
+);
+
+const letterContinue =
+document.getElementById(
+"letterContinue"
+);
+
+let typingStarted = false;
+
+function startTyping(){
+
+if(typingStarted) return;
+
+typingStarted = true;
+
+let i = 0;
+
+function type(){
+
+if(i < birthdayMessage.length){
+
+typewriter.innerHTML +=
+birthdayMessage.charAt(i);
+
+i++;
+
+setTimeout(
+type,
+35
+);
+
+}
+
+else{
+
+letterContinue.style.display =
+"inline-block";
+
+}
+
+}
+
+type();
+
+}
+
+letterContinue.addEventListener(
+"click",
+()=>{
+
+goToScreen(4);
+
+}
+);
+
+/* ---------------- */
+/* ACHIEVEMENT */
+/* ---------------- */
+
+document
+.getElementById(
+"achievementContinue"
+)
+.addEventListener(
+"click",
+()=>{
+
+goToScreen(5);
+
+}
+);
+
+/* ---------------- */
+/* CAKE */
+/* ---------------- */
+
+const blowBtn =
+document.getElementById(
+"blowBtn"
+);
+
+const wishContinue =
+document.getElementById(
+"wishContinue"
+);
+
+const wishStatus =
+document.getElementById(
+"wishStatus"
+);
+
+blowBtn.addEventListener(
+"click",
+()=>{
+
+wishStatus.innerHTML =
+"✨ Wish Accepted ✨";
+
+blowBtn.innerHTML =
+"💨 Candle Blown";
+
+wishContinue.style.display =
+"inline-block";
+
+createConfetti();
+
+}
+);
+
+wishContinue.addEventListener(
+"click",
+()=>{
+
+goToScreen(6);
+
+}
+);
+
+/* ---------------- */
+/* CONFETTI */
+/* ---------------- */
+
+function createConfetti(){
+
+for(let i=0;i<60;i++){
+
+const confetti =
+document.createElement("div");
+
+confetti.innerHTML =
+["✨","🎉","⭐","❤️"][
+
+Math.floor(
+Math.random()*4
+)
+
+];
+
+confetti.style.position =
+"fixed";
+
+confetti.style.left =
+Math.random()*100+"vw";
+
+confetti.style.top =
+"-20px";
+
+confetti.style.fontSize =
+(18 + Math.random()*20)+"px";
+
+document.body.appendChild(
+confetti
+);
+
+let pos = -20;
+
+const fall =
+setInterval(()=>{
+
+pos += 4;
+
+confetti.style.top =
+pos+"px";
+
+if(
+pos >
+window.innerHeight
+){
+
+clearInterval(fall);
+
+confetti.remove();
+
+}
+
+},20);
+
+}
+
+}
+
+/* ---------------- */
+/* DATE SCREEN */
+/* ---------------- */
+
+const yesBtn =
+document.getElementById(
+"yesBtn"
+);
+
+const noBtn =
+document.getElementById(
+"noBtn"
+);
+
+yesBtn.addEventListener(
+"click",
+()=>{
+
+goToScreen(7);
+
+}
+);
+
+function moveNoButton(){
+
+const x =
+Math.random()*200 - 100;
+
+const y =
+Math.random()*100 - 50;
+
+noBtn.style.transform =
+`translate(${x}px,${y}px)`;
+
+}
+
+noBtn.addEventListener(
+"mouseover",
+moveNoButton
+);
+
+noBtn.addEventListener(
+"touchstart",
+moveNoButton
+);
+
+/* ---------------- */
+/* FLOATING HEARTS */
+/* ---------------- */
+
+const icons = [
+
+"❤️",
+"✨",
+"💌",
+"⭐"
+
+];
+
+function createHeart(){
+
+const heart =
+document.createElement(
+"div"
+);
+
+heart.className =
+"float-heart";
+
+heart.innerHTML =
+icons[
+
+Math.floor(
+Math.random()*icons.length
+)
+
+];
+
+heart.style.left =
+Math.random()*100+"vw";
+
+heart.style.animationDuration =
+(6 + Math.random()*6)
++"s";
+
+document
+.getElementById(
+"floating-hearts"
+)
+.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},12000);
+
+}
+
+setInterval(
+createHeart,
+800
+);
 /* PART 3 JAVASCRIPT GOES HERE */
 
 </script>
